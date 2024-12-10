@@ -5,7 +5,7 @@ import ashara from "../videos/ashara.mp4";
 import ashara2 from "../videos/ashara2.mp4";
 import ashara3 from "../videos/ashara3.mp4";
 import asharaimg from "../videos/ashara.jpeg";
-import asharaimg2 from "../img/asharaimg@.jpg";
+import asharaimg2 from "../img/asharaimg2.jpg";
 import asharaimg3 from "../img/ashara3.jpeg";
 
 const portfolioItems = [
