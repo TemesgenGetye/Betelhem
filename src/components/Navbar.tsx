@@ -1,4 +1,4 @@
-import { Menu, Video, Home, Newspaper, Briefcase, User } from "lucide-react";
+import { Menu, Video, Home, Newspaper, User } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -24,12 +24,12 @@ export default function Navbar() {
               <NavLink
                 to="/portfolio"
                 icon={<Video className="h-4 w-4" />}
-                text="Work"
+                text="Videos"
               />
               <NavLink
                 to="/blog"
                 icon={<Newspaper className="h-4 w-4" />}
-                text="Blog"
+                text="Textbook"
               />
               <NavLink
                 to="/about"

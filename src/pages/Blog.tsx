@@ -8,7 +8,6 @@ const blogPosts = [
     title: "ትምህርት ቤት",
     excerpt: "ትምህርት ቤት || ለምን እንደዘገየን ይገባናል? || ደራሲ ሰላሙ ጫነ ታቦር (ዶ/ር)",
     date: "2024-03-20",
-    readTime: "",
     image: text2,
   },
 
@@ -17,30 +16,21 @@ const blogPosts = [
     excerpt:
       "በፍቅር ቤት || ፍቅር ሳይሆን የጎዳን እንዴት ማፍቀር እንዳለብን አለማወቃችን ነው የጎዳን || ደራሲ ሰላሙ ጫነ ታቦር (ዶ/ር)",
     date: "2024-03-20",
-    readTime: "",
     image: text1,
   },
   {
     title: "እኛ ቤት",
     excerpt: "እኛ ቤት || የአንዳንድ ቤተሰብ ታሪክ የሀገርም ታሪክ ነው || ደራሲ ሰላሙ ጫነ ታቦር (ዶ/ር)",
     date: "2024-03-01",
-    readTime: "",
     image: text,
   },
-  {
-    title: "Mastering Subtitles for Global Audiences",
-    excerpt:
-      "A behind-the-scenes look at editing subtitles for DSTV and making stories accessible worldwide.",
-    date: "2024-03-15",
-    readTime: "6 min",
-    image: "https://via.placeholder.com/800x400.png?text=Subtitle+Editing",
-  },
+
   {
     title: "The Art of Editing Drama Series",
     excerpt:
       "How precision editing on projects like 'Ashara' enhances storytelling and audience engagement.",
     date: "2024-03-10",
-    readTime: "5 min",
+
     image: "https://via.placeholder.com/800x400.png?text=Drama+Editing",
   },
   {
@@ -48,23 +38,7 @@ const blogPosts = [
     excerpt:
       "Proven tips for creating visually stunning and engaging videos that captivate social media audiences.",
     date: "2024-03-05",
-    readTime: "4 min",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
-  },
-  {
-    title: "The Art of Editing Drama Series",
-    excerpt:
-      "How precision editing on projects like 'Ashara' enhances storytelling and audience engagement.",
-    date: "2024-03-10",
-    readTime: "5 min",
-    image: "https://via.placeholder.com/800x400.png?text=Drama+Editing",
-  },
-  {
-    title: "Enhancing Social Media Content Through Editing",
-    excerpt:
-      "Proven tips for creating visually stunning and engaging videos that captivate social media audiences.",
-    date: "2024-03-05",
-    readTime: "4 min",
+
     image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
   },
   {
@@ -72,7 +46,6 @@ const blogPosts = [
     excerpt:
       "Lessons from working on tight schedules in productions like Keza Afriqa and Energy Film Production.",
     date: "2024-03-01",
-    readTime: "6 min",
     image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
   },
 ];

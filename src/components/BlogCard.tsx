@@ -2,7 +2,6 @@ interface BlogCardProps {
   title: string;
   excerpt: string;
   date: string;
-  readTime: string;
   image: string;
 }
 
@@ -10,7 +9,6 @@ export default function BlogCard({
   title,
   excerpt,
   date,
-  readTime,
   image,
 }: BlogCardProps) {
   return (
@@ -21,7 +19,6 @@ export default function BlogCard({
       <div className="p-6">
         <div className="flex items-center text-sm text-gray-400 space-x-4">
           <time dateTime={date}>{date}</time>
-          <span>{readTime} read</span>
         </div>
         <h3 className="mt-3 text-xl font-semibold text-white">{title}</h3>
         <p className="mt-2 text-gray-400">{excerpt}</p>

@@ -60,18 +60,17 @@ export default function CompanyLogos() {
               transition={{ duration: 0.6 }}
               onHoverStart={() => setHoveredIndex(index)}
               onHoverEnd={() => setHoveredIndex(null)}
+              className="group"
             >
-              <div className="relative bg-gray-800 rounded-xl p-6 h-32 flex items-center justify-center group hover:bg-gray-700 transition-colors duration-300 overflow-hidden">
+              <div className="relative bg-gray-800 rounded-xl p-6 h-32 flex items-center justify-center hover:bg-gray-700 transition-colors duration-300 overflow-hidden">
                 <img
                   src={company.logo}
                   alt={`${company.name} logo`}
-                  className="h-16 w-auto transition-all duration-300 ease-in-out"
-                  style={{
-                    filter:
-                      hoveredIndex === index
-                        ? "grayscale(0%) brightness(100%)"
-                        : "grayscale(100%) brightness(200%)",
-                  }}
+                  className={`h-16 w-auto object-contain transition-all duration-300 ease-in-out ${
+                    hoveredIndex === index
+                      ? "filter-none brightness-100"
+                      : "grayscale-[50%] brightness-125"
+                  }`}
                 />
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
