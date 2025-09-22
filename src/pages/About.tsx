@@ -43,7 +43,7 @@ export default function About() {
                   "DaVinci Resolve",
                   "Final Cut Pro",
                   "Photoshop",
-                  "Premier pro",
+                  "Illustrator",
                 ].map((skill) => (
                   <div
                     key={skill}
