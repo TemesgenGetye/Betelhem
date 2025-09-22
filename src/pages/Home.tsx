@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Experience />
       <Stats />
       <Services />
-      <Experience />
       <CompanyLogos />
       <CallToAction />
       <Footer />

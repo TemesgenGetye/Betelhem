@@ -9,14 +9,32 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100/30 via-white/50 to-gray-100/30 blur-3xl"></div>
 
       <div className="relative max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="text-center">
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-20">
+        <div className="text-center flex flex-col items-center">
+          <h1 className="text-5xl md:text-8xl lg:text-9xl font-bold mb-8 md:mb-20 mt-8 md:mt-0">
             <span className="block bg-gradient-to-r from-orange-900 via-pink-900 to-purple-900 bg-clip-text text-transparent">
               Hi, I'm Betelhem Ashenafi
             </span>
           </h1>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8">
+          {/* Moved and centered description for mobile */}
+          <div className="mb-6 md:mb-8 max-w-md w-full mx-auto">
+            <h2 className="text-xl md:text-3xl font-bold text-black mb-2 text-center">
+              Video Editor & Storyteller
+            </h2>
+            <p className="text-gray-700 leading-relaxed mb-4 text-center">
+              I transform complex stories into elegant visual narratives using
+              video editing, graphics, narration, and subtitles. Working
+              globally to deliver compelling content.
+            </p>
+            <Link
+              to="/about"
+              className="inline-flex items-center text-gray-700 hover:text-gray-900 transition-colors text-center mx-auto"
+            >
+              Know more →
+            </Link>
+          </div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 md:gap-8">
             <Link
               to="/blog"
               className="inline-flex items-center text-gray-700 hover:text-gray-900 transition-colors text-lg"
@@ -32,26 +50,6 @@ export default function Hero() {
             </Link>
           </div>
         </div>
-      </div>
-
-      {/* Left bottom description */}
-      <div className="absolute bottom-8 left-8 max-w-md">
-        <div className="mb-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-black mb-2">
-            Video Editor & Storyteller
-          </h2>
-        </div>
-        <p className="text-gray-700 leading-relaxed mb-4">
-          I transform complex stories into elegant visual narratives using video
-          editing, graphics, narration, and subtitles. Working globally to
-          deliver compelling content.
-        </p>
-        <Link
-          to="/about"
-          className="inline-flex items-center text-gray-700 hover:text-gray-900 transition-colors"
-        >
-          Know more →
-        </Link>
       </div>
 
       {/* Side elements */}

@@ -15,6 +15,16 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
+    title: "Vist Oromia",
+    description:
+      "visit Oromia waterfall and tour the beautiful nature of Oromia",
+    videoUrl: "https://youtu.be/_BpPpndsvtM?si=uiiiKWj1-k2HmYIn",
+    thumbnailUrl: `https://img.youtube.com/vi/${getYouTubeVideoId(
+      "https://youtu.be/_BpPpndsvtM?si=uiiiKWj1-k2HmYIn"
+    )}/0.jpg`,
+    type: "youtube" as const,
+  },
+  {
     title: "Documentary: 'Urban Explorers'",
     description: "A journey through hidden city landscapes",
     videoUrl: "https://youtu.be/5SIIv26kmPY?si=6O3azW8Q-4ZzO9z4",
@@ -83,7 +93,7 @@ export default function Experience() {
 
   return (
     <section className="bg-gradient-to-br from-white to-gray-50 py-24">
-      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <h2 className="text-5xl md:text-6xl font-bold text-black text-center mb-16">
           Featured Work
         </h2>
