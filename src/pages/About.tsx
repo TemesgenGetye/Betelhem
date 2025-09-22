@@ -20,7 +20,7 @@ export default function About() {
             </h1>
             <p className="text-gray-700 mb-6 leading-relaxed text-lg">
               Hey there! I'm Betelhem Ashenafi, a skilled video and graphics
-              editor with over 3 years of experience in crafting engaging visual
+              editor with over 4 years of experience in crafting engaging visual
               content. Based in Addis Ababa, Ethiopia, I've worked with
               prominent organizations like Energy Film Production and Keza
               Afriqa Production, specializing in video editing, graphics
