@@ -82,7 +82,7 @@ export default function Hero() {
 
             <div className="mb-8">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                Video Editor & Storyteller
+                Video Editor & Content Creator
               </h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-6 hidden lg:block">
                 I transform complex stories into elegant visual narratives using
@@ -93,12 +93,6 @@ export default function Hero() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <Link
-                to="/blog"
-                className="inline-flex items-center text-gray-700 hover:text-gray-900 transition-colors text-lg font-medium"
-              >
-                Watch Reel →
-              </Link>
               <Link
                 to="/portfolio"
                 className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors text-lg font-medium shadow-lg"
