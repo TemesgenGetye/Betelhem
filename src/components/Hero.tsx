@@ -4,6 +4,10 @@ import { useState } from "react";
 import beti from "../img/beti1.png";
 import VideoThumbnail from "./VideoThumbnail";
 import VideoModal from "./VideoModal";
+import vid1 from "../videos/vid1.mp4";
+import elbv from "../videos/elbv.mp4";
+import vid3 from "../videos/vid3.mp4";
+import ashara from "../videos/ashara.mp4";
 
 export default function Hero() {
   const [selectedVideo, setSelectedVideo] = useState<{
@@ -15,22 +19,22 @@ export default function Hero() {
 
   const videos = [
     {
-      src: "/src/videos/vid1.mp4",
+      src: vid1,
       title: "Visit Oromia land of wonders",
       type: "local" as const,
     },
     {
-      src: "/src/videos/elbv.mp4",
+      src: elbv,
       title: "Belmont Bistro food and drinks",
       type: "local" as const,
     },
     {
-      src: "/src/videos/vid3.mp4",
+      src: vid3,
       title: "Land of wonders of Oromia",
       type: "local" as const,
     },
     {
-      src: "/src/videos/ashara.mp4",
+      src: ashara,
       title: "Ashara movie series",
       type: "local" as const,
     },
