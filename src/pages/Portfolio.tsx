@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import VideoCardPor from "../components/VideoCardPor";
+import VideoModal from "../components/VideoModal";
 import { getYouTubeVideoId } from "../utils/youtube";
-import { getTikTokEmbedUrl } from "../utils/tiktok";
 import ashara from "../videos/ashara.mp4";
 import ashara2 from "../videos/ashara2.mp4";
 import ashara3 from "../videos/ashara3.mp4";
@@ -15,6 +15,12 @@ import oro from "../img/oro.png";
 import oro2 from "../img/oro2.png";
 import elb4 from "../img/elb4.png";
 import ersho from "../img/ersho.jpg";
+import vid1 from "../videos/vid1.mp4";
+import vid2 from "../videos/vid2.mp4";
+import vid3 from "../videos/vid3.mp4";
+import vid1p from "../img/vid1.png";
+import vid2p from "../img/vid2.png";
+import vid3p from "../img/vid3.png";
 
 const portfolioItems = [
   {
@@ -28,6 +34,17 @@ const portfolioItems = [
     type: "youtube" as const,
     category: "Tourism",
   },
+
+  {
+    title: "Nelson Mandela // ኔልሰን ማንዴላ //ሙሉ የህይወት ታሪክ",
+    description: "a documentary about Nelson Mandela",
+    videoUrl: "https://youtu.be/5SIIv26kmPY?si=6O3azW8Q-4ZzO9z4",
+    thumbnailUrl: `https://img.youtube.com/vi/${getYouTubeVideoId(
+      "https://youtu.be/5SIIv26kmPY?si=6O3azW8Q-4ZzO9z4"
+    )}/0.jpg`,
+    type: "youtube" as const,
+    category: "Documentary",
+  },
   {
     title: "Vist Oromia",
     description: "wenchi lake and tour the beautiful nature of Oromia",
@@ -40,6 +57,30 @@ const portfolioItems = [
   },
   {
     title: "Vist Oromia",
+    description: "beautiful nature of Oromia",
+    videoUrl: vid1,
+    thumbnailUrl: vid1p,
+    type: "local" as const,
+    category: "Tourism",
+  },
+  {
+    title: "Vist Oromia",
+    description: "beautiful nature of Oromia",
+    videoUrl: vid2,
+    thumbnailUrl: vid2p,
+    type: "local" as const,
+    category: "Tourism",
+  },
+  {
+    title: "Vist Oromia",
+    description: "beautiful nature of Oromia",
+    videoUrl: vid3,
+    thumbnailUrl: vid3p,
+    type: "local" as const,
+    category: "Tourism",
+  },
+  {
+    title: "Vist Oromia",
     description: "wenchi lake and tour the beautiful nature of Oromia",
     videoUrl: "https://youtu.be/h6mh8BhPUW4?si=3nbFlOC0eH6ebSHb",
     thumbnailUrl: `https://img.youtube.com/vi/${getYouTubeVideoId(
@@ -48,16 +89,17 @@ const portfolioItems = [
     type: "youtube" as const,
     category: "Tourism",
   },
+
   {
-    title: "Nelson Mandela // ኔልሰን ማንዴላ //ሙሉ የህይወት ታሪክ",
-    description: "a documentary about Nelson Mandela",
-    videoUrl: "https://youtu.be/5SIIv26kmPY?si=6O3azW8Q-4ZzO9z4",
-    thumbnailUrl: `https://img.youtube.com/vi/${getYouTubeVideoId(
-      "https://youtu.be/5SIIv26kmPY?si=6O3azW8Q-4ZzO9z4"
-    )}/0.jpg`,
-    type: "youtube" as const,
-    category: "Documentary",
+    title: "The PS Market",
+    description: "A place to buy and sell playstation games",
+    videoUrl:
+      "https://www.tiktok.com/@the_ps_market/video/7529183889944792326?is_from_webapp=1&sender_device=pc&web_id=743351039059797760",
+    thumbnailUrl: elb2,
+    type: "tiktok" as const,
+    category: "TikTok Video",
   },
+
   {
     title: "Visit Oromia",
     description: "visit Oromia and tour the beautiful nature of Oromia",
@@ -105,15 +147,6 @@ const portfolioItems = [
     category: "TikTok Video",
   },
 
-  {
-    title: "The PS Market",
-    description: "A place to buy and sell playstation games",
-    videoUrl:
-      "https://www.tiktok.com/@the_ps_market/video/7541148483928083717?is_from_webapp=1&sender_device=pc&web_id=7433510390597977607",
-    thumbnailUrl: elb2,
-    type: "tiktok" as const,
-    category: "TikTok Video",
-  },
   {
     title: "The PS Market",
     description: "A place to buy and sell playstation games",
@@ -217,12 +250,14 @@ const portfolioItems = [
 ];
 
 interface VideoData {
-  url: string;
+  src: string;
+  title: string;
   type: "youtube" | "local" | "tiktok";
 }
 
 export default function Portfolio() {
   const [selectedVideo, setSelectedVideo] = useState<VideoData | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [animatedItems, setAnimatedItems] = useState<number[]>([]);
 
   useEffect(() => {
@@ -232,30 +267,26 @@ export default function Portfolio() {
     return () => clearTimeout(timer);
   }, []);
 
-  useEffect(() => {
-    const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeModal();
-      }
-    };
-
-    if (selectedVideo) {
-      document.addEventListener("keydown", handleEscape);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [selectedVideo]);
-
   const openModal = (
     videoUrl: string,
     videoType: "youtube" | "local" | "tiktok"
   ) => {
-    setSelectedVideo({ url: videoUrl, type: videoType });
+    // Find the portfolio item to get the title
+    const portfolioItem = portfolioItems.find(
+      (item) => item && item.videoUrl === videoUrl
+    );
+    if (portfolioItem) {
+      setSelectedVideo({
+        src: videoUrl,
+        title: portfolioItem.title,
+        type: videoType,
+      });
+      setIsModalOpen(true);
+    }
   };
 
   const closeModal = () => {
+    setIsModalOpen(false);
     setSelectedVideo(null);
   };
 
@@ -273,100 +304,40 @@ export default function Portfolio() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {portfolioItems.map((item, index) => (
-            <div
-              key={item.title}
-              className={`${
-                animatedItems.includes(index)
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              } transition-all duration-500 ease-in-out`}
-            >
-              <VideoCardPor {...item} onPlay={openModal} />
-            </div>
-          ))}
+          {portfolioItems.map((item, index) => {
+            if (!item) return null;
+            return (
+              <div
+                key={item.title}
+                className={`${
+                  animatedItems.includes(index)
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                } transition-all duration-500 ease-in-out`}
+              >
+                <VideoCardPor
+                  title={item.title}
+                  description={item.description}
+                  thumbnailUrl={item.thumbnailUrl}
+                  videoUrl={item.videoUrl}
+                  category={item.category}
+                  type={item.type}
+                  onPlay={openModal}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
 
-      {selectedVideo && (
-        <div className="fixed inset-0 bg-white bg-opacity-95 backdrop-blur-sm flex items-center justify-center z-50 p-4 animate-in fade-in duration-300">
-          <div
-            className={`relative bg-white rounded-2xl overflow-hidden shadow-2xl border border-gray-200 animate-in zoom-in-95 duration-300 ${
-              selectedVideo.type === "tiktok"
-                ? "w-full max-w-md mx-auto"
-                : "w-full max-w-5xl"
-            }`}
-          >
-            <button
-              className="absolute top-4 right-4 text-gray-600 hover:text-red-500 z-50 bg-gray-100 hover:bg-red-50 backdrop-blur-sm rounded-full p-2 transition-all duration-200 shadow-lg"
-              onClick={closeModal}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            </button>
-
-            {/* TikTok specific styling */}
-            {selectedVideo.type === "tiktok" ? (
-              <div className="flex flex-col items-center">
-                <div className="w-full max-w-sm mx-auto bg-gradient-to-br from-pink-500 via-red-500 to-purple-600 p-1 rounded-t-2xl">
-                  <div className="bg-white rounded-t-xl">
-                    <div className="aspect-[9/16] max-h-[85vh] min-h-[600px] flex items-center justify-center">
-                      <iframe
-                        src={getTikTokEmbedUrl(selectedVideo.url)}
-                        allow="autoplay; encrypted-media"
-                        allowFullScreen
-                        className="w-full h-full border-0 rounded-t-xl"
-                      ></iframe>
-                    </div>
-                  </div>
-                </div>
-                <div className="bg-white px-6 py-4 w-full rounded-b-2xl">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                    <span className="text-sm text-gray-600">TikTok Video</span>
-                  </div>
-                  <p className="text-gray-700 text-sm">
-                    Tap to interact with the video
-                  </p>
-                </div>
-              </div>
-            ) : (
-              /* YouTube and Local video styling */
-              <div className="aspect-w-16 aspect-h-9">
-                {selectedVideo.type === "youtube" ? (
-                  <iframe
-                    src={`https://www.youtube.com/embed/${getYouTubeVideoId(
-                      selectedVideo.url
-                    )}?autoplay=1`}
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    className="w-full h-full"
-                  ></iframe>
-                ) : (
-                  <video
-                    src={selectedVideo.url}
-                    controls
-                    autoPlay
-                    className="w-full h-full"
-                  ></video>
-                )}
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        videoSrc={selectedVideo?.src || ""}
+        title={selectedVideo?.title || ""}
+        type={selectedVideo?.type || "local"}
+      />
     </div>
   );
 }
