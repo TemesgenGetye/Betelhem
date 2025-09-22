@@ -1,13 +1,19 @@
 import { motion } from "framer-motion";
-import { Book, Camera, Mic, Subtitles, Video } from "lucide-react";
+import { Book, Camera, Mic, Subtitles, Video, Newspaper } from "lucide-react";
 
 const services = [
+  {
+    title: "Content Creation",
+    description: "Creating content for social media and other platforms",
+    icon: Newspaper,
+  },
   {
     title: "Social Media Management",
     description:
       "Strategic planning and management to grow and engage your audience",
     icon: Camera,
   },
+
   {
     title: "Video and Graphics Editing",
     description:
@@ -35,24 +41,24 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-black py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-br from-white to-gray-50 py-24">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
-          className="text-center"
+          className="text-center mb-16"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-extrabold text-white sm:text-5xl">
+          <h2 className="text-5xl md:text-6xl font-bold text-black mb-6">
             My Expertise
           </h2>
-          <p className="mt-4 text-xl text-gray-400">
+          <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
             Comprehensive video editing solutions tailored to your vision
           </p>
         </motion.div>
 
         <motion.div
-          className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
           variants={{
             hidden: { opacity: 0 },
             show: {
@@ -73,28 +79,28 @@ export default function Services() {
                 show: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative group bg-gray-800 p-6 rounded-xl overflow-hidden hover:shadow-2xl transition-all duration-300 ease-in-out"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="relative group bg-white p-8 rounded-2xl overflow-hidden hover:shadow-xl transition-all duration-300 ease-in-out border border-gray-100"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-100/30 to-gray-200/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out" />
               <div className="relative z-10">
-                <span className="rounded-lg inline-flex p-3 bg-purple-500 text-white ring-4 ring-purple-900 group-hover:bg-white group-hover:text-purple-500 transition-all duration-300 ease-in-out">
+                <span className="rounded-2xl inline-flex p-4 bg-gradient-to-r from-orange-400 to-pink-500 text-white group-hover:from-orange-500 group-hover:to-pink-600 transition-all duration-300 ease-in-out shadow-lg">
                   <service.icon className="h-6 w-6" aria-hidden="true" />
                 </span>
-                <div className="mt-8">
-                  <h3 className="text-xl font-semibold text-white group-hover:text-purple-300 transition-colors duration-300 ease-in-out">
+                <div className="mt-6">
+                  <h3 className="text-xl font-semibold text-gray-900 group-hover:text-gray-800 transition-colors duration-300 ease-in-out">
                     {service.title}
                   </h3>
-                  <p className="mt-2 text-base text-gray-400 group-hover:text-white transition-colors duration-300 ease-in-out">
+                  <p className="mt-3 text-base text-gray-600 group-hover:text-gray-700 transition-colors duration-300 ease-in-out leading-relaxed">
                     {service.description}
                   </p>
                 </div>
-                <div className="mt-4 flex justify-end">
+                <div className="mt-6 flex justify-end">
                   <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="text-purple-400 group-hover:text-white font-medium transition-colors duration-300 ease-in-out"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="text-gray-600 group-hover:text-gray-900 font-medium transition-colors duration-300 ease-in-out"
                   >
                     Learn More →
                   </motion.button>

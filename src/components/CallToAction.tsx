@@ -22,18 +22,9 @@ export default function CallToAction() {
   };
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover opacity-30"
-          autoPlay
-          muted
-          loop
-          playsInline
-          src="https://example.com/background-video.mp4"
-        />
-      </div>
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <section className="relative bg-gradient-to-br from-white to-gray-50 py-24">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100/30 via-white/50 to-gray-100/30 blur-3xl"></div>
+      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <motion.div
           className="text-center"
           variants={containerVariants}
@@ -41,16 +32,16 @@ export default function CallToAction() {
           animate="visible"
         >
           <motion.h2
-            className="text-4xl font-extrabold text-white sm:text-5xl mb-6"
+            className="text-5xl md:text-6xl font-bold text-black mb-6"
             variants={itemVariants}
           >
             Ready to Create Something{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
+            <span className="bg-gradient-to-r from-orange-400 via-pink-500 to-purple-600 bg-clip-text text-transparent">
               Extraordinary?
             </span>
           </motion.h2>
           <motion.p
-            className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
+            className="text-lg text-gray-700 mb-12 max-w-2xl mx-auto leading-relaxed"
             variants={itemVariants}
           >
             Let's collaborate on your next video project and bring your vision
@@ -62,24 +53,18 @@ export default function CallToAction() {
           >
             <Link
               to="/portfolio"
-              className="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium text-white bg-purple-600 rounded-full shadow-2xl transition duration-300 ease-out"
+              className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors text-lg font-medium"
             >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-600 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></span>
-              <span className="relative flex items-center">
-                View Portfolio
-                <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300 ease-out" />
-              </span>
+              View Portfolio
+              <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
 
             <Link
               to="/about"
-              className="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-medium text-white bg-gray-700 rounded-full shadow-2xl transition duration-300 ease-out hover:text-purple-600"
+              className="inline-flex items-center px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-full hover:bg-gray-50 transition-colors text-lg font-medium"
             >
-              <span className="absolute inset-0 w-full h-full bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-out"></span>
-              <span className="relative flex items-center">
-                <Mail className="mr-2 h-5 w-5" />
-                Contact Me
-              </span>
+              <Mail className="mr-2 h-5 w-5" />
+              Contact Me
             </Link>
           </motion.div>
         </motion.div>

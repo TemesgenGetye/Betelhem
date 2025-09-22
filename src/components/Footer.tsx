@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
+    <footer className="bg-gradient-to-br from-white to-gray-50 text-gray-700">
+      <div className="max-w-6xl mx-auto py-12 px-6 sm:px-8 lg:px-12">
+        <div className="mt-8 pt-8 border-t border-gray-200 text-center">
           <p>
-            &copy; {new Date().getFullYear()} Betelhem Ahsenafi. All rights
+            &copy; {new Date().getFullYear()} Betelhem Ashenafi. All rights
             reserved.
           </p>
         </div>

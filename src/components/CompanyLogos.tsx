@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import comp1 from "../img/comp1.jpg";
 import comp2 from "../img/comp2.jpg";
 import comp3 from "../img/comp3.jpg";
 import comp4 from "../img/comp4.png";
+import comp5 from "../img/oro.png";
 
 const companies = [
   {
@@ -22,16 +23,20 @@ const companies = [
     name: "Keza Africa Production",
     logo: comp4,
   },
+  {
+    name: "Vist Oromia",
+    logo: comp5,
+  },
 ];
 
 export default function CompanyLogos() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <section className="bg-gradient-to-b from-gray-900 to-black py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-br from-white to-gray-50 py-24">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
         <motion.h2
-          className="text-3xl md:text-4xl font-bold text-center text-white mb-16"
+          className="text-5xl md:text-6xl font-bold text-center text-black mb-16"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -62,14 +67,14 @@ export default function CompanyLogos() {
               onHoverEnd={() => setHoveredIndex(null)}
               className="group"
             >
-              <div className="relative bg-gray-800 rounded-xl p-6 h-32 flex items-center justify-center hover:bg-gray-700 transition-colors duration-300 overflow-hidden">
+              <div className="relative bg-white rounded-2xl p-6 h-32 flex items-center justify-center hover:bg-gray-50 transition-colors duration-300 overflow-hidden border border-gray-100 shadow-lg hover:shadow-xl">
                 <img
                   src={company.logo}
                   alt={`${company.name} logo`}
                   className={`h-16 w-auto object-contain transition-all duration-300 ease-in-out ${
                     hoveredIndex === index
-                      ? "filter-none brightness-100"
-                      : "grayscale-[50%] brightness-125"
+                      ? "filter-none brightness-100 scale-110"
+                      : "grayscale-[30%] brightness-110"
                   }`}
                 />
                 <motion.div

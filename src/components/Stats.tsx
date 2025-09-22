@@ -7,28 +7,28 @@ import { useState, useEffect } from "react";
 const stats = [
   {
     label: "Projects Completed",
-    value: 150,
+    value: 190,
     icon: Video,
     description: "Successful video projects",
     color: "text-blue-500",
   },
   {
     label: "Years Experience",
-    value: 3,
+    value: 4,
     icon: Clock,
     description: "Professional editing",
     color: "text-green-500",
   },
   {
     label: "Happy Clients",
-    value: 120,
+    value: 27,
     icon: Users,
     description: "Worldwide",
     color: "text-yellow-500",
   },
   {
     label: "Companies Worked With",
-    value: 3,
+    value: 4,
     icon: Award,
     description: "Industry recognition",
     color: "text-purple-500",
@@ -42,9 +42,9 @@ export default function Stats() {
   });
 
   return (
-    <div className="bg-gray-900" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-white text-center mb-16">
+    <div className="bg-gradient-to-br from-white to-gray-50" ref={ref}>
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+        <h2 className="text-5xl md:text-6xl font-bold text-black text-center mb-16">
           My Journey in Numbers
         </h2>
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
@@ -99,13 +99,11 @@ function StatItem({
       >
         <div className="text-center">
           <stat.icon className={`h-8 w-8 mx-auto mb-2 ${stat.color}`} />
-          <div className="text-3xl font-bold text-white">{count}</div>
+          <div className="text-3xl font-bold text-gray-900">{count}</div>
         </div>
       </CircularProgress>
-      <h3 className={`mt-4 text-xl font-semibold ${stat.color}`}>
-        {stat.label}
-      </h3>
-      <p className="mt-2 text-sm text-gray-400 text-center">
+      <h3 className="mt-4 text-xl font-semibold text-gray-900">{stat.label}</h3>
+      <p className="mt-2 text-sm text-gray-600 text-center">
         {stat.description}
       </p>
     </motion.div>

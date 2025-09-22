@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Play } from "lucide-react";
 import { getYouTubeVideoId } from "../utils/youtube";
 import ashara from "../videos/ashara.mp4";
@@ -24,13 +24,13 @@ const experiences: Experience[] = [
     type: "youtube",
   },
   {
-    title: "Music Video: 'Neon Dreams'",
-    description: "Vibrant visuals for an electronic music artist",
-    videoUrl: "https://youtu.be/KbjauDphZzs?si=4KcgH6Kxa6pcek5T",
+    title: "Vist Oromia",
+    description: "wenchi lake and tour the beautiful nature of Oromia",
+    videoUrl: "https://youtu.be/h6mh8BhPUW4?si=3nbFlOC0eH6ebSHb",
     thumbnailUrl: `https://img.youtube.com/vi/${getYouTubeVideoId(
-      "https://youtu.be/KbjauDphZzs?si=4KcgH6Kxa6pcek5T"
+      "https://youtu.be/h6mh8BhPUW4?si=3nbFlOC0eH6ebSHb"
     )}/0.jpg`,
-    type: "youtube",
+    type: "youtube" as const,
   },
   {
     title: "Ashara",
@@ -82,16 +82,16 @@ export default function Experience() {
   };
 
   return (
-    <section className="bg-gray-900 py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-extrabold text-white sm:text-4xl text-center mb-12 animate-fade-in">
+    <section className="bg-gradient-to-br from-white to-gray-50 py-24">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <h2 className="text-5xl md:text-6xl font-bold text-black text-center mb-16">
           Featured Work
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className={`bg-gray-800 rounded-lg overflow-hidden transform transition-all duration-500 ease-in-out hover:scale-105 ${
+              className={`bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 transform transition-all duration-500 ease-in-out hover:shadow-xl hover:scale-102 ${
                 animatedItems.includes(index)
                   ? "opacity-100 translate-y-0"
                   : "opacity-0 translate-y-10"
@@ -103,9 +103,9 @@ export default function Experience() {
                   alt={exp.title}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <button
-                    className="bg-purple-600 hover:bg-purple-700 text-white rounded-full p-3 transition-colors transform hover:scale-110"
+                    className="bg-gradient-to-r from-orange-400 to-pink-500 hover:from-orange-500 hover:to-pink-600 text-white rounded-full p-4 transition-all transform hover:scale-110 shadow-lg"
                     onClick={() => openModal(exp.videoUrl, exp.type)}
                   >
                     <Play className="h-6 w-6" />
@@ -113,10 +113,12 @@ export default function Experience() {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {exp.title}
                 </h3>
-                <p className="text-gray-400">{exp.description}</p>
+                <p className="text-gray-600 leading-relaxed">
+                  {exp.description}
+                </p>
               </div>
             </div>
           ))}
@@ -124,22 +126,22 @@ export default function Experience() {
         <div className="mt-12 text-center">
           <Link
             to="/portfolio"
-            className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-purple-600 bg-gray-800 hover:bg-gray-700 transition-colors"
+            className="inline-flex items-center px-8 py-4 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-colors text-lg font-medium"
           >
             View All Projects
           </Link>
         </div>
       </div>
       {selectedVideo && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <div className="relative w-full max-w-3xl">
+        <div className="fixed inset-0 bg-white bg-opacity-95 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+          <div className="relative w-full max-w-5xl bg-white rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
             <button
-              className="absolute top-4 right-4 text-red-400 hover:text-red-600 z-50"
+              className="absolute top-4 right-4 text-gray-600 hover:text-red-500 z-50 bg-gray-100 hover:bg-red-50 backdrop-blur-sm rounded-full p-2 transition-all duration-200 shadow-lg"
               onClick={closeModal}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
+                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
